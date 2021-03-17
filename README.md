@@ -8,11 +8,11 @@ Nesse projeto, existem duas API's, uma para checkout e a outra para o pagamento,
 
 <h3>Como o projeto ficou:</h3>
 
-<img src="./github img/img1.png">
+<img src="/github img/img1.PNG">
 
 
 
-<img src="./github img/img2.png">
+<img src="/github img/img2.PNG">
 
 
 
