@@ -1,7 +1,9 @@
+server:
+  port: 8082
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/checkout
+    url: jdbc:postgresql://localhost:5433/payment
     username: admin
     password: admin
     driver-class-name: org.postgresql.Driver
@@ -33,23 +35,21 @@ spring:
               deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
               serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       bindings:
-        checkout-created-output:
+        checkout-created-input:
           destination: streaming.ecommerce.checkout.created
-          contentType: application/*+avro
-          producer:
-            use-native-encoding: true
-        payment-paid-input:
-          destination: streaming.ecommerce.payment.paid
           contentType: application/*+avro
           group: ${spring.application.name}
           consumer:
             use-native-decoding: true
+        payment-paid-output:
+          destination: streaming.ecommerce.payment.paid
+          contentType: application/*+avro
+          producer:
+            use-native-encoding: true
   kafka:
     properties:
       schema:
         registry:
           url: http://localhost:8081
   application:
-    name: checkout-api
-server:
-  port: 8085
+    name: payment-api
