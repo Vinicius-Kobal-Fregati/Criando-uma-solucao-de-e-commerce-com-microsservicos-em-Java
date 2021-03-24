@@ -13,21 +13,21 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+@Entity // Mostra que é uma entidade.
 @Audited
 @EntityListeners(AuditingEntityListener.class)
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CheckoutEntity {
+public class CheckoutEntity { // Essa classe representa a tabela de dados do checkout.
 
-    @Id
+    @Id // Diz que é um id.
     @GeneratedValue
     private Long id;
 
     @Column
-    private String code;
+    private String code; // Esse é o código de checkout.
 
     @Column
     @Enumerated(value = EnumType.STRING)

@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/v1/checkout")
+@Controller // Aqui mostra que é um controller, é utilizado para poder instanciar essa classe.
+@RequestMapping("/v1/checkout") // Colocamos um path padrão para o nosso resource.
 @RequiredArgsConstructor
-public class CheckoutResource {
+public class CheckoutResource { // Temos nossa classe de resource.
 
     private final CheckoutService checkoutService;
 
     @PostMapping("/")
-    public ResponseEntity<CheckoutResponse> create(@RequestBody CheckoutRequest checkoutRequest) {
+    public ResponseEntity<CheckoutResponse> create(@RequestBody CheckoutRequest checkoutRequest) { // ResponseEntity é uma classe do spring que facilita a construção de api REST.
         final CheckoutEntity checkoutEntity = checkoutService.create(checkoutRequest).orElseThrow();
         final CheckoutResponse checkoutResponse = CheckoutResponse.builder()
                 .code(checkoutEntity.getCode())

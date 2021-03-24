@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@Service // Utilizado para permitir que se crie uma instância desse serviço.
 @RequiredArgsConstructor
 @Slf4j
 public class CheckoutServiceImpl implements CheckoutService {

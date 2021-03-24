@@ -1,16 +1,16 @@
 package com.hatanaka.ecommerce.checkout.resource.checkout;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Data; // Com isso, só precisamos declarar as implementações.
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
+@Data //Cria Getter e Setter
+@AllArgsConstructor // Isso cria um construtor no tempo de compilação para todos os argumentos.
 @NoArgsConstructor
-public class CheckoutRequest implements Serializable {
+public class CheckoutRequest implements Serializable { // O serializable diz que essa classe precisa ser serializada.
 
     private String firstName;
     private String lastName;
